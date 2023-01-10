@@ -29,7 +29,7 @@ jobs:
 
     - name: Get Package Version
       run : |
-        PACKAGE_VERSION=$(grep -E '<Version>(.\..\..)<\/Version>' ./Interop.Stdlib/Ekeel.Interop.Stdlib.csproj | grep -o '.\..\..')
+        PACKAGE_VERSION=$(grep -E '<Version>(.\..\..)<\/Version>' ./Ekeel.Interop.Python/Ekeel.Interop.Python.csproj | grep -o '.\..\..')
         PACKAGE_VERSION=${PACKAGE_VERSION//$'\n'/}
         echo "PACKAGE_VERSION=$PACKAGE_VERSION" >> $GITHUB_ENV
     

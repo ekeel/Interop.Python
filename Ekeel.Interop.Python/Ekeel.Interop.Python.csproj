@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<Version>1.0.0</Version>
+		<SynchReleaseVersion>false</SynchReleaseVersion>
+		<PackageId>Ekeel.Interop.Python</PackageId>
+	</PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="Ekeel.Interop.Stdlib" Version="1.0.1" />
+		<PackageReference Include="pythonnet" Version="3.0.1" />
+	</ItemGroup>
+	<ItemGroup>
+	  <None Remove="pythonnet" />
+	</ItemGroup>
+	<ItemGroup>
+		<None Include="../license.txt" Pack="true" PackagePath="license.txt" />
+		<None Include="../README.md" Pack="true" PackagePath="README.md" />
+	</ItemGroup>
+</Project>

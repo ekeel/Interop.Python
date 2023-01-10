@@ -1,0 +1,39 @@
+name: Release
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 6.0.x
+        
+    - name: Restore dependencies
+      run: dotnet restore
+      
+    - name: Build
+      run: dotnet build --configuration Release --no-restore
+      
+    - name: Test
+      run: dotnet test --configuration Release --no-build --verbosity normal
+
+    - name: Get Package Version
+      run : |
+        PACKAGE_VERSION=$(grep -E '<Version>(.\..\..)<\/Version>' ./Interop.Stdlib/Ekeel.Interop.Stdlib.csproj | grep -o '.\..\..')
+        PACKAGE_VERSION=${PACKAGE_VERSION//$'\n'/}
+        echo "PACKAGE_VERSION=$PACKAGE_VERSION" >> $GITHUB_ENV
+    
+    - name: Release
+      env:
+        NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
+      run: dotnet nuget push ./Ekeel.Interop.Python/bin/Release/Ekeel.Interop.Python.$PACKAGE_VERSION.nupkg --api-key $NUGET_API_KEY --source https://api.nuget.org/v3/index.json

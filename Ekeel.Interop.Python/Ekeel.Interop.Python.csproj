@@ -4,17 +4,23 @@
 		<TargetFramework>net6.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
-		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-		<Version>1.0.0</Version>
-		<SynchReleaseVersion>false</SynchReleaseVersion>
-		<PackageId>Ekeel.Interop.Python</PackageId>
 	</PropertyGroup>
+	<PropertyGroup>
+		<PackageId>Ekeel.Interop.Python</PackageId>
+		<Description>A wrapper around PythonNet that allows for execution of Python code.</Description>
+		<Authors>ekeel</Authors>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<Version>1.0.1</Version>
+		<SynchReleaseVersion>false</SynchReleaseVersion>
+		<PackageProjectUrl>https://github.com/ekeel/Interop.Python</PackageProjectUrl>
+		<PackageLicenseFile>license.txt</PackageLicenseFile>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<RepositoryType>git</RepositoryType>
+		<RepositoryUrl>https://github.com/ekeel/Interop.Python</RepositoryUrl>
+    </PropertyGroup>
 	<ItemGroup>
 		<PackageReference Include="Ekeel.Interop.Stdlib" Version="1.0.1" />
 		<PackageReference Include="pythonnet" Version="3.0.1" />
-	</ItemGroup>
-	<ItemGroup>
-	  <None Remove="pythonnet" />
 	</ItemGroup>
 	<ItemGroup>
 		<None Include="../license.txt" Pack="true" PackagePath="license.txt" />

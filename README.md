@@ -10,7 +10,7 @@ var pythonHandler = new Handler();
 var variables = new Dictionary<string, object>();
 variables.Add("test_var", "test_var_val");
 
-pythonHandler.RunFromFile(@"C:\tmp\test.py", "sysversion", variables);
+pythonHandler.RunFromFile(@"C:\tmp\test.py", "test_var", variables);
 ```
 
 - [Ekeel.Interop.Python](#ekeelinteroppython)
@@ -50,7 +50,7 @@ Class `Handler` handles execution of Python scripts using a local Python setup.
 
 #### `Handler(string pythonDllPath)`
 
-> This constructor initializes a new `Handler` using a .env file.
+> This constructor initializes a new `Handler`.
 >
 > Parameters:
 > - `pythonDllPath`
@@ -63,7 +63,7 @@ Class `Handler` handles execution of Python scripts using a local Python setup.
 
 #### `Handler(string pythonDllPath, string pythonHome)`
 
-> This constructor initializes a new `Handler` using a .env file.
+> This constructor initializes a new `Handler`.
 >
 > Parameters:
 > - `pythonDllPath`
